@@ -50,3 +50,7 @@ Vanilla HTML/CSS/JavaScript ES modules, Node's built-in test runner, GitHub Acti
 [ARAZVERA TECHNOLOGIES](https://github.com/arazvera-technologies) · [Agentic AI Architecture Notes](https://github.com/arazvera-technologies/agentic-ai-architecture-notes) · [Secure Automation Patterns](https://github.com/arazvera-technologies/secure-automation-patterns)
 
 *Independent technology brand in development. No claim of legal incorporation, customer delivery, or production deployment.*
+
+## Deployment status
+
+The static site is deployed via the GitHub Actions Pages workflow after unit tests and the production build pass. Deployment status and the verified public URL are available under the repository's Actions and Settings / Pages sections. Initial setup requires selecting GitHub Actions as the Pages source.
