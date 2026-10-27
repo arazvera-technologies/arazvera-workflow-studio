@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111417">
+  <meta name="description" content="ARAZVERA Workflow Studio — an interactive, locally simulated specialist routing and approval workbench.">
+  <title>Workflow Studio — ARAZVERA TECHNOLOGIES</title>
+  <link rel="icon" type="image/webp" href="./assets/arazvera-mark.webp">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="brand">
+      <img class="brand-mark" src="./assets/arazvera-mark.webp" alt="ARAZVERA gold circuit tree">
+      <div><strong>ARAZVERA</strong><span>TECHNOLOGIES</span></div>
+    </div>
+    <div class="division">PLATFORM / 01</div>
+    <nav class="nav" aria-label="Product sections">
+      <button class="nav-link active" data-view="workbench"><span class="nav-icon">◫</span> Workbench <span class="nav-arrow">↗</span></button>
+      <button class="nav-link" data-view="approvals"><span class="nav-icon">◇</span> Review queue <span class="nav-count" id="nav-pending">0</span></button>
+      <button class="nav-link" data-view="activity"><span class="nav-icon">≋</span> Activity log</button>
+      <button class="nav-link" data-view="about"><span class="nav-icon">⌘</span> How it works</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="mini-system"><span class="pulse-dot"></span><div><b>Local simulation</b><small>Standalone. No external actions.</small></div></div>
+      <a class="sidebar-link" href="https://github.com/arazvera-technologies" target="_blank" rel="noopener noreferrer">Organization GitHub <span>↗</span></a>
+      <div class="copyright">© ARAZVERA TECHNOLOGIES<br>Engineering reference / v1.0</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="breadcrumbs"><span>PRODUCT LAB</span><span class="slash">/</span><strong>Workflow Studio</strong></div>
+      <div class="topbar-right"><span class="status"><span class="pulse-dot"></span> DEMO ENVIRONMENT</span><span class="top-version">R1 / PUBLIC</span></div>
+    </header>
+
+    <main class="content">
+      <section class="intro" aria-label="Overview">
+        <div class="intro-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> SYSTEMS, WITH ACCOUNTABILITY</div>
+          <h1>Intelligent workflows.<br><em>Human control.</em></h1>
+          <p>Explore specialist routing, policy decisions and approval gates in one transparent workspace. Every action is simulated. Every decision leaves a trace.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="new-request-top"><span>＋</span> New workflow request</button>
+            <button class="btn btn-ghost" id="export-top">Export activity <span>↗</span></button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orb orb-three"></div>
+          <div class="hero-emblem"><img src="./assets/arazvera-mark.webp" alt=""></div>
+          <div class="art-caption">SYSTEM / GOVERNANCE / TRUST <span>001—003</span></div>
+        </div>
+      </section>
+
+      <div class="section-overline"><span>01 / OPERATIONAL SNAPSHOT</span><span>ILLUSTRATIVE DATA ONLY</span></div>
+      <section class="metrics" aria-label="Demonstration metrics">
+        <article class="metric"><span class="metric-title">Total requests <span>↗</span></span><strong id="metric-total">0</strong><small>Stored in this browser</small></article>
+        <article class="metric"><span class="metric-title">Simulated outcomes <span>↗</span></span><strong id="metric-simulated">0</strong><small>Zero external tool calls</small></article>
+        <article class="metric"><span class="metric-title">Pending human review <span>↗</span></span><strong id="metric-pending">0</strong><small>Approval gate enforced</small></article>
+        <article class="metric"><span class="metric-title">Denied or rejected <span>↗</span></span><strong id="metric-denied">0</strong><small>Fail-closed by design</small></article>
+      </section>
+
+      <section id="view-workbench" class="view active-view">
+        <div class="workspace-grid">
+          <div class="panel table-panel">
+            <div class="panel-top"><div><span class="eyebrow-mini">WORKSPACE / TASK ROUTING</span><h2>Request overview</h2><p>Understand where each request goes—and why.</p></div><button class="plain-icon" id="new-request-small" aria-label="Create new request">＋</button></div>
+            <div class="toolbar"><label class="search-field"><span>⌕</span><input id="search-input" type="search" placeholder="Search requests..." aria-label="Search requests"></label><label class="select-wrap"><span>STATUS</span><select id="status-filter" aria-label="Filter requests by status"><option value="all">All requests</option><option value="ready">Ready</option><option value="review_required">Needs approval</option><option value="approved">Approved</option><option value="simulated">Simulated</option><option value="denied">Denied</option><option value="rejected">Rejected</option></select></label></div>
+            <div class="table-scroll"><table><thead><tr><th>REQUEST</th><th>SPECIALIST</th><th>PRIORITY</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="task-rows"></tbody></table></div>
+            <div id="empty-tasks" class="empty hidden">No requests match your filters. Try another search or create a workflow.</div>
+            <div class="panel-foot"><span><span class="pulse-dot muted-dot"></span> All outcomes remain in your browser</span><button class="text-button" id="reset-demo">Reset sample data ↺</button></div>
+          </div>
+          <aside class="right-rail">
+            <div class="panel decision-panel"><span class="eyebrow-mini">DECISION ENGINE / 01</span><h3>Policy before execution.</h3><p>Route to the right specialist. Escalate high-impact requests. Deny anything outside the explicit capability map.</p>
+              <div class="routing-chart"><div class="routing-node center-node"><span>◇</span> ROUTER</div><div class="routing-lines"><i></i><i></i><i></i></div><div class="routing-leaves"><div><b>ARCH</b><small>Systems</small></div><div><b>SEC</b><small>Defense</small></div><div><b>DOC</b><small>Content</small></div></div></div>
+              <button class="text-button align-left" data-view="about">View policy model <span>↗</span></button>
+            </div>
+            <div class="quote-panel"><span class="quote-mark">“</span><p>Automation should be explainable before it becomes executable.</p><span>ARAZVERA / DESIGN PRINCIPLE</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-approvals" class="view">
+        <div class="panel wide-panel"><div class="panel-top"><div><span class="eyebrow-mini">HUMAN IN THE LOOP</span><h2>Pending approvals</h2><p>High-impact operations remain blocked until a reviewer explicitly chooses an outcome.</p></div><span class="section-pill">REVIEW GATE</span></div><div id="approval-items" class="approval-list"></div><div id="empty-approvals" class="empty hidden">The review queue is clear. Create a deployment, containment or publishing request to test the approval flow.</div></div>
+      </section>
+
+      <section id="view-activity" class="view">
+        <div class="panel wide-panel"><div class="panel-top"><div><span class="eyebrow-mini">OBSERVABILITY / LOCAL EVENT STREAM</span><h2>Decision trail</h2><p>A chronological audit of simulated actions in this browser.</p></div><button class="btn btn-outline" id="export-activity">Export JSON ↗</button></div><div id="activity-items" class="timeline"></div></div>
+      </section>
+
+      <section id="view-about" class="view">
+        <div class="panel wide-panel about-panel"><div class="panel-top"><div><span class="eyebrow-mini">REFERENCE ARCHITECTURE</span><h2>Built to show the boundaries.</h2><p>A functioning browser-based engineering demonstration—not a connected AI deployment.</p></div><span class="section-pill">OFFLINE-FIRST</span></div>
+          <div class="how-grid">
+            <div><span class="how-number">01</span><h3>Request intake</h3><p>Supply a title, domain, operation and priority. The input is validated before routing.</p></div>
+            <div><span class="how-number">02</span><h3>Policy evaluation</h3><p>Exact capability allowlists determine ready, needs review or denied status.</p></div>
+            <div><span class="how-number">03</span><h3>Human decision</h3><p>Sensitive workflows require an explicit local reviewer choice before simulation.</p></div>
+            <div><span class="how-number">04</span><h3>Audit & export</h3><p>Review all events, export a JSON snapshot and reset locally whenever needed.</p></div>
+          </div>
+          <div class="disclaimer"><strong>Operational boundary</strong><p>No language model, production service, external tool, background agent or real deployment is connected. All displayed records are synthetic or locally entered. Do not enter sensitive information.</p></div>
+        </div>
+      </section>
+
+      <footer class="footer"><span>ARAZVERA TECHNOLOGIES <span class="footer-sep">/</span> PUBLIC ENGINEERING DEMO</span><span>SIMULATION ONLY · NO EXTERNAL EXECUTION</span></footer>
+    </main>
+  </div>
+</div>
+
+<dialog id="request-dialog" class="request-dialog" aria-labelledby="dialog-title">
+ <form id="request-form" method="dialog">
+  <div class="dialog-header"><div><span class="eyebrow-mini">CREATE / WORKFLOW REQUEST</span><h2 id="dialog-title">New request</h2></div><button type="button" class="dialog-close" id="close-dialog" aria-label="Close dialog">×</button></div>
+  <p class="dialog-lead">A policy decision will be made locally. No real action will run.</p>
+  <label class="form-row">Request title <input id="request-title" name="title" maxlength="100" minlength="1" required placeholder="e.g. Review service architecture"></label>
+  <div class="form-split"><label class="form-row">Specialist domain <select id="request-domain" name="domain"><option value="architecture">Systems architecture</option><option value="security">Defensive security</option><option value="documentation">Technical documentation</option></select></label><label class="form-row">Priority <select id="request-priority" name="priority"><option value="medium">Medium</option><option value="low">Low</option><option value="high">High</option></select></label></div>
+  <label class="form-row">Requested capability <select id="request-action" name="action"></select></label>
+  <div id="policy-preview" class="policy-preview"><span>◇</span><div><b>Routing preview</b><small>Review request attributes to see policy decision.</small></div></div>
+  <div id="form-error" class="form-error" role="alert"></div>
+  <div class="dialog-actions"><button type="button" class="btn btn-outline" id="cancel-dialog">Cancel</button><button type="submit" class="btn btn-primary">Submit for routing ↗</button></div>
+ </form>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>

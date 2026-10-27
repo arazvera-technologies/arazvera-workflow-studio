@@ -1,0 +1,10 @@
+import {rmSync,mkdirSync,copyFileSync,cpSync} from 'node:fs';
+import {resolve} from 'node:path';
+const root=process.cwd();
+const dist=resolve(root,'dist');
+rmSync(dist,{recursive:true,force:true});
+mkdirSync(dist,{recursive:true});
+for(const file of ['index.html','styles.css'])copyFileSync(resolve(root,file),resolve(dist,file));
+cpSync(resolve(root,'src'),resolve(dist,'src'),{recursive:true});
+cpSync(resolve(root,'assets'),resolve(dist,'assets'),{recursive:true});
+console.log('Static demo built into dist/');
